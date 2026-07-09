@@ -1,8 +1,11 @@
 import "../styles/globals.css";
+import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
+import { siteConfig } from "../lib/site";
 
 export const metadata = {
-  title: "IKIS Home",
-  description: "Beautifully Curated Living."
+  title: siteConfig.seo.title,
+  description: siteConfig.seo.description,
 };
 
 export default function RootLayout({
@@ -12,7 +15,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className="site-shell">
+          <Header />
+          {children}
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }

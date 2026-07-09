@@ -1,0 +1,16 @@
+:root {
+  --color-background: #F7F3EE;
+  --color-surface: #FFFFFF;
+  --color-accent: #B98E5F;
+  --color-dark: #222222;
+  --color-muted: #7A746C;
+  --color-border: rgba(34, 34, 34, 0.12);
+  --color-soft: rgba(185, 142, 95, 0.14);
+  --radius-pill: 999px;
+  --radius-arch: 2rem;
+  --radius-card: 1.5rem;
+  --shadow-soft: 0 18px 48px rgba(34, 34, 34, 0.08);
+  --shadow-card: 0 12px 30px rgba(34, 34, 34, 0.06);
+  --transition-base: 180ms ease;
+  --container-width: 1200px;
+}
