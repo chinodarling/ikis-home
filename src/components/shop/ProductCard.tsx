@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import type { Product } from "../../data/products";
 import { formatCurrency } from "../../data/products";
@@ -49,12 +50,12 @@ export default function ProductCard({ product }: ProductCardProps) {
         }}
       >
         {hasImage ? (
-          <img
+          <Image
             src={product.image}
             alt={product.name}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
             style={{
-              width: "100%",
-              height: "100%",
               objectFit: "cover",
               transition: "transform 240ms ease",
             }}
@@ -72,21 +73,9 @@ export default function ProductCard({ product }: ProductCardProps) {
             style={{
               width: "100%",
               height: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "1.5rem",
               background: "linear-gradient(135deg, #EEDFCF 0%, #ECE2D3 100%)",
-              color: "#6F675E",
-              textAlign: "center",
-              fontSize: "0.95rem",
-              lineHeight: 1.6,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
             }}
-          >
-            Warm neutral placeholder
-          </div>
+          />
         )}
 
         <button

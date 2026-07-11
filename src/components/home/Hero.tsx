@@ -1,22 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import Button from "../ui/Button";
 import Container from "../ui/Container";
 
 export function HeroRender() {
-  const [hasImage, setHasImage] = useState(false);
-
-  useEffect(() => {
-    const img = new window.Image();
-    img.src = "/images/hero/hero-render-01.webp";
-    img.onload = () => setHasImage(true);
-    img.onerror = () => setHasImage(false);
-  }, []);
-
   return (
     <div
       style={{
+        position: "relative",
         width: "100%",
         height: "100%",
         minHeight: 520,
@@ -29,33 +22,14 @@ export function HeroRender() {
         justifyContent: "center",
       }}
     >
-      {hasImage ? (
-        <img
-          src="/images/hero/hero-render-01.webp"
-          alt="Curated home scene placeholder"
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
-      ) : (
-        <div
-          style={{
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "2rem",
-            backgroundColor: "#E9DFD0",
-            color: "#6F675E",
-            textAlign: "center",
-            fontSize: "0.95rem",
-            lineHeight: 1.6,
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-          }}
-        >
-          Warm stone placeholder for supplier photography
-        </div>
-      )}
+      <Image
+        src="/images/hero/heros-written-main.jpg"
+        alt="Curated home scene"
+        fill
+        sizes="(max-width: 768px) 100vw, 50vw"
+        priority
+        style={{ objectFit: "cover" }}
+      />
     </div>
   );
 }
@@ -128,10 +102,14 @@ export default function Hero() {
               Discover furniture, décor and home accessories curated for sophisticated South African homes.
             </p>
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-              <Button type="button">Shop Collection</Button>
-              <Button type="button" variant="secondary">
-                Explore Rooms
-              </Button>
+              <Link href="/shop">
+                <Button type="button">Shop Collection</Button>
+              </Link>
+              <a href="#featured-categories">
+                <Button type="button" variant="secondary">
+                  Explore Rooms
+                </Button>
+              </a>
             </div>
           </div>
 

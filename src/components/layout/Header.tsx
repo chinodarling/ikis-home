@@ -4,9 +4,11 @@ import Container from "../ui/Container";
 import Logo from "./Logo";
 
 const navItems = [
+  { label: "Home", href: "/" },
   { label: "Collections", href: "/collections" },
   { label: "Furniture", href: "/furniture" },
   { label: "Decor", href: "/decor" },
+  { label: "Kitchenware", href: "/shop/kitchenware" },
 ];
 
 export default function Header() {
@@ -21,9 +23,11 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-        <Button variant="secondary" className="site-header__action">
-          Shop now
-        </Button>
+        <Link href="/shop">
+          <Button variant="secondary" className="site-header__action">
+            Shop now
+          </Button>
+        </Link>
       </Container>
     </header>
   );

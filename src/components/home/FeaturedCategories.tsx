@@ -1,48 +1,42 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 const categories = [
-  { title: "Living Room", image: "/images/categories/living-room.webp" },
-  { title: "Bedroom", image: "/images/categories/bedroom.webp" },
-  { title: "Dining", image: "/images/categories/dining.webp" },
-  { title: "Kitchen", image: "/images/categories/kitchen.webp" },
-  { title: "Decor", image: "/images/categories/decor.webp" },
-  { title: "Outdoor", image: "/images/categories/outdoor.webp" },
+  { title: "Living Room", image: "/images/hero/heros-living-room-written.jpg", href: "/furniture" },
+  { title: "Bedroom", image: "/images/hero/heros-bedroom-written.jpg", href: "/furniture" },
+  { title: "Dining", image: "/images/hero/heros-dining-written.jpg", href: "/furniture" },
+  { title: "Kitchen", image: "/images/hero/heros-kitchen-written.jpg", href: "/shop/kitchenware" },
+  { title: "Decor", image: "/images/hero/heros-decor-written.jpg", href: "/decor" },
+  { title: "Outdoor", image: "/images/hero/heros-outdoor-written.jpg", href: "/outdoor" },
 ];
 
-function CategoryCard({ title, image }: { title: string; image: string }) {
-  const [hasImage, setHasImage] = useState(false);
-
-  useEffect(() => {
-    const img = new window.Image();
-    img.src = image;
-    img.onload = () => setHasImage(true);
-    img.onerror = () => setHasImage(false);
-  }, [image]);
+function CategoryCard({ title, image, href }: { title: string; image: string; href: string }) {
 
   return (
-    <article
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        borderRadius: 24,
-        backgroundColor: "#F7F3EE",
-        boxShadow: "0 16px 40px rgba(34, 34, 34, 0.06)",
-        border: "1px solid rgba(34, 34, 34, 0.08)",
-        transition: "transform 220ms ease, box-shadow 220ms ease",
-      }}
-      onMouseEnter={(event) => {
-        const target = event.currentTarget as HTMLDivElement;
-        target.style.transform = "translateY(-4px)";
-        target.style.boxShadow = "0 22px 48px rgba(34, 34, 34, 0.10)";
-      }}
-      onMouseLeave={(event) => {
-        const target = event.currentTarget as HTMLDivElement;
-        target.style.transform = "translateY(0)";
-        target.style.boxShadow = "0 16px 40px rgba(34, 34, 34, 0.06)";
-      }}
-    >
+    <Link href={href} style={{ textDecoration: "none" }}>
+      <article
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          borderRadius: 24,
+          backgroundColor: "#F7F3EE",
+          boxShadow: "0 16px 40px rgba(34, 34, 34, 0.06)",
+          border: "1px solid rgba(34, 34, 34, 0.08)",
+          transition: "transform 220ms ease, box-shadow 220ms ease",
+        }}
+        onMouseEnter={(event) => {
+          const target = event.currentTarget as HTMLDivElement;
+          target.style.transform = "translateY(-4px)";
+          target.style.boxShadow = "0 22px 48px rgba(34, 34, 34, 0.10)";
+        }}
+        onMouseLeave={(event) => {
+          const target = event.currentTarget as HTMLDivElement;
+          target.style.transform = "translateY(0)";
+          target.style.boxShadow = "0 16px 40px rgba(34, 34, 34, 0.06)";
+        }}
+      >
       <div
         style={{
           position: "relative",
@@ -51,46 +45,24 @@ function CategoryCard({ title, image }: { title: string; image: string }) {
           backgroundColor: "#EFE8DE",
         }}
       >
-        {hasImage ? (
-          <img
-            src={image}
-            alt={title}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              transition: "transform 240ms ease",
-            }}
-            onMouseEnter={(event) => {
-              const target = event.currentTarget as HTMLImageElement;
-              target.style.transform = "scale(1.04)";
-            }}
-            onMouseLeave={(event) => {
-              const target = event.currentTarget as HTMLImageElement;
-              target.style.transform = "scale(1)";
-            }}
-          />
-        ) : (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "1.5rem",
-              backgroundColor: "#E8DECF",
-              color: "#6D655D",
-              textAlign: "center",
-              fontSize: "0.9rem",
-              lineHeight: 1.6,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-            }}
-          >
-            Warm neutral placeholder
-          </div>
-        )}
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          style={{
+            objectFit: "cover",
+            transition: "transform 240ms ease",
+          }}
+          onMouseEnter={(event) => {
+            const target = event.currentTarget as HTMLImageElement;
+            target.style.transform = "scale(1.04)";
+          }}
+          onMouseLeave={(event) => {
+            const target = event.currentTarget as HTMLImageElement;
+            target.style.transform = "scale(1)";
+          }}
+        />
       </div>
 
       <div
@@ -130,13 +102,14 @@ function CategoryCard({ title, image }: { title: string; image: string }) {
           ↗
         </div>
       </div>
-    </article>
+      </article>
+    </Link>
   );
 }
 
 export default function FeaturedCategories() {
   return (
-    <section style={{ paddingBottom: 96 }}>
+    <section id="featured-categories" style={{ paddingBottom: 96 }}>
       <div style={{ maxWidth: 1440, margin: "0 auto", padding: "0 1.25rem" }}>
         <div style={{ marginBottom: 32, maxWidth: 640 }}>
           <h2 style={{ margin: 0, marginBottom: 12, fontSize: 34, fontWeight: 600, color: "#222222" }}>
@@ -155,7 +128,7 @@ export default function FeaturedCategories() {
           }}
         >
           {categories.map((category) => (
-            <CategoryCard key={category.title} title={category.title} image={category.image} />
+            <CategoryCard key={category.title} title={category.title} image={category.image} href={category.href} />
           ))}
         </div>
       </div>

@@ -19,13 +19,25 @@ export const productCategories = [
   "Outdoor",
 ] as const;
 
+const realProductImages = [
+  "/images/products/kitchenware/Collection 1 — Serveware/Large-Travertine-Serving-Board.jpg",
+  "/images/products/kitchenware/Collection 1 — Serveware/Round-Marble-Serving-Board.jpg",
+  "/images/products/kitchenware/Collection 1 — Serveware/Travertine-Cake-Stand.jpg",
+  "/images/products/kitchenware/Collection 1 — Serveware/Oak-Serving-Tray.jpg",
+  "/images/products/kitchenware/Collection 1 — Serveware/Stone-Lazy-Susan.jpg",
+  "/images/products/kitchenware/Collection 2 — Bowls/Large-Travertine-Fruit-Bowl.jpg",
+  "/images/products/kitchenware/Collection 2 — Bowls/Ceramic-Salad-Bowl.jpg",
+  "/images/products/kitchenware/Collection 2 — Bowls/Nested-Ceramic-Bowl-Set.jpg",
+  "/images/products/kitchenware/Collection 2 — Bowls/Stone-Snack-Bowl-Set.jpg",
+];
+
 export const products: Product[] = [
   {
     id: "travertine-table-lamp",
     name: "Travertine Table Lamp",
     category: "Lighting",
     price: 2890,
-    image: "/images/products/travertine-table-lamp.webp",
+    image: realProductImages[0],
     description: "Hand-finished travertine base with a soft linen shade.",
   },
   {
@@ -33,7 +45,7 @@ export const products: Product[] = [
     name: "Oak Dining Chair",
     category: "Dining",
     price: 2490,
-    image: "/images/products/oak-dining-chair.webp",
+    image: realProductImages[1],
     description: "Solid oak frame with a sculpted upholstered seat.",
   },
   {
@@ -41,7 +53,7 @@ export const products: Product[] = [
     name: "Stone Vase",
     category: "Décor",
     price: 1850,
-    image: "/images/products/stone-vase.webp",
+    image: realProductImages[2],
     description: "A softly textured vase for sculptural floral arrangements.",
   },
   {
@@ -49,7 +61,7 @@ export const products: Product[] = [
     name: "Linen Throw",
     category: "Décor",
     price: 1290,
-    image: "/images/products/linen-throw.webp",
+    image: realProductImages[3],
     description: "Woven linen in a warm stone palette for layered comfort.",
   },
   {
@@ -57,7 +69,7 @@ export const products: Product[] = [
     name: "Ceramic Mug Set",
     category: "Kitchen",
     price: 980,
-    image: "/images/products/ceramic-mug-set.webp",
+    image: realProductImages[4],
     description: "A handcrafted set for slow mornings and afternoon tea.",
   },
   {
@@ -65,7 +77,7 @@ export const products: Product[] = [
     name: "Marble Tray",
     category: "Décor",
     price: 1650,
-    image: "/images/products/marble-tray.webp",
+    image: realProductImages[5],
     description: "A polished marble tray styled for coffee service or display.",
   },
   {
@@ -73,7 +85,7 @@ export const products: Product[] = [
     name: "Walnut Coffee Table",
     category: "Furniture",
     price: 6890,
-    image: "/images/products/walnut-coffee-table.webp",
+    image: realProductImages[6],
     description: "Solid walnut with a softened, architectural silhouette.",
   },
   {
@@ -81,7 +93,7 @@ export const products: Product[] = [
     name: "Woven Basket",
     category: "Décor",
     price: 920,
-    image: "/images/products/woven-basket.webp",
+    image: realProductImages[7],
     description: "Natural seagrass detailing with a refined, tactile finish.",
   },
   {
@@ -89,7 +101,7 @@ export const products: Product[] = [
     name: "Brass Floor Lamp",
     category: "Lighting",
     price: 4290,
-    image: "/images/products/brass-floor-lamp.webp",
+    image: realProductImages[8],
     description: "A sculptural brass lamp designed for ambient evening glow.",
   },
   {
@@ -97,7 +109,7 @@ export const products: Product[] = [
     name: "Rattan Side Table",
     category: "Furniture",
     price: 3180,
-    image: "/images/products/rattan-side-table.webp",
+    image: realProductImages[0],
     description: "An airy silhouette that brings texture to intimate spaces.",
   },
   {
@@ -105,7 +117,7 @@ export const products: Product[] = [
     name: "Satin Serve Board",
     category: "Kitchen",
     price: 1120,
-    image: "/images/products/satin-serve-board.webp",
+    image: realProductImages[1],
     description: "A refined board for serving cheese, fruit, and morning bread.",
   },
   {
@@ -113,7 +125,7 @@ export const products: Product[] = [
     name: "Olive Wood Cutting Board",
     category: "Kitchen",
     price: 1380,
-    image: "/images/products/olive-wood-cutting-board.webp",
+    image: realProductImages[2],
     description: "A durable heirloom piece finished in warm olive tones.",
   },
   {
@@ -121,7 +133,7 @@ export const products: Product[] = [
     name: "Cane Armchair",
     category: "Furniture",
     price: 5980,
-    image: "/images/products/cane-armchair.webp",
+    image: realProductImages[3],
     description: "An elegant armchair crafted for leisurely reading corners.",
   },
   {
@@ -129,7 +141,7 @@ export const products: Product[] = [
     name: "Sconce Wall Light",
     category: "Lighting",
     price: 2670,
-    image: "/images/products/sconce-wall-light.webp",
+    image: realProductImages[4],
     description: "A softly diffused wall light for hallways and bedside niches.",
   },
   {
@@ -137,7 +149,7 @@ export const products: Product[] = [
     name: "Ceramic Serve Bowl",
     category: "Kitchen",
     price: 890,
-    image: "/images/products/ceramic-serve-bowl.webp",
+    image: realProductImages[5],
     description: "A hand-glazed vessel for sharing everyday meals beautifully.",
   },
   {
@@ -145,7 +157,7 @@ export const products: Product[] = [
     name: "Linen Basket",
     category: "Décor",
     price: 760,
-    image: "/images/products/linen-basket.webp",
+    image: realProductImages[6],
     description: "A tactile storage basket with a generous, sculptural form.",
   },
   {
@@ -153,7 +165,7 @@ export const products: Product[] = [
     name: "Bouclé Ottoman",
     category: "Furniture",
     price: 3490,
-    image: "/images/products/boucle-ottoman.webp",
+    image: realProductImages[7],
     description: "A plush ottoman upholstered in a softly textured boucle fabric.",
   },
   {
@@ -161,7 +173,7 @@ export const products: Product[] = [
     name: "Garden Planter",
     category: "Outdoor",
     price: 1460,
-    image: "/images/products/garden-planter.webp",
+    image: realProductImages[8],
     description: "A weathered stone planter made for terraces and courtyards.",
   },
   {
@@ -169,7 +181,7 @@ export const products: Product[] = [
     name: "Outdoor Lounge Chair",
     category: "Outdoor",
     price: 5120,
-    image: "/images/products/outdoor-lounge-chair.webp",
+    image: realProductImages[0],
     description: "A refined outdoor chair with powder-coated detailing.",
   },
   {
@@ -177,7 +189,7 @@ export const products: Product[] = [
     name: "Woven Rug",
     category: "Décor",
     price: 2980,
-    image: "/images/products/woven-rug.webp",
+    image: realProductImages[1],
     description: "A natural fibre rug with a soft, organic weave.",
   },
   {
@@ -185,7 +197,7 @@ export const products: Product[] = [
     name: "Marquetry Console",
     category: "Furniture",
     price: 8420,
-    image: "/images/products/marquetry-console.webp",
+    image: realProductImages[2],
     description: "A statement console with rich wood inlay and sculpted legs.",
   },
   {
@@ -193,7 +205,7 @@ export const products: Product[] = [
     name: "Glass Pendant",
     category: "Lighting",
     price: 3120,
-    image: "/images/products/glass-pendant.webp",
+    image: realProductImages[3],
     description: "A hand-blown pendant that diffuses light with warmth.",
   },
   {
@@ -201,7 +213,7 @@ export const products: Product[] = [
     name: "Dining Bench",
     category: "Dining",
     price: 3680,
-    image: "/images/products/dining-bench.webp",
+    image: realProductImages[4],
     description: "A versatile bench that brings calm structure to the dining room.",
   },
 ];
