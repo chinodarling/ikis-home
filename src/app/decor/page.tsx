@@ -5,7 +5,7 @@ export default function DecorPage() {
     <CollectionEditorialPage
       title="Decor"
       intro="Layered accents and sculptural pieces for a calm, elevated home. Explore objects that bring texture, atmosphere, and character to any room."
-      image="/images/hero/decor.png"
+      image="/images/hero/heros-decor-written.jpg"
       collectionCategory="Décor"
       editorialTitle="Objects with Presence"
       editorialText="The decor collection pairs natural materials with refined forms to create quiet drama. Each object is chosen to complement the architecture and soften the rhythm of daily living."

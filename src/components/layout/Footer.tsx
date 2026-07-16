@@ -4,8 +4,8 @@ import { siteConfig } from "../../lib/site";
 
 const footerLinks = [
   { label: "Collections", href: "/collections" },
-  { label: "Journal", href: "/journal" },
-  { label: "Contact", href: "/contact" },
+  { label: "Shop", href: "/shop" },
+  { label: "Kitchenware", href: "/shop/kitchenware" },
 ];
 
 export default function Footer() {

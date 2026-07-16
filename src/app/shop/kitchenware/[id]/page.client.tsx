@@ -8,11 +8,7 @@ import { kitchenwareProducts, formatCurrency } from "../../../../data/kitchenwar
 import Container from "../../../../components/ui/Container";
 import { useCart } from "../../../../components/shop/CartProvider";
 
-export function generateStaticParams() {
-  return kitchenwareProducts.map((product) => ({ id: product.id }));
-}
-
-export default function KitchenwareProductPage() {
+export default function KitchenwareProductPageClient() {
   const params = useParams<{ id: string }>();
   const { addItem } = useCart();
   const [selectedImage, setSelectedImage] = useState(0);

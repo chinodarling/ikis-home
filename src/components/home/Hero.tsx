@@ -2,10 +2,44 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import Button from "../ui/Button";
 import Container from "../ui/Container";
 
+const heroImages = [
+  "/images/hero/heros-living-room-written.jpg",
+  "/images/hero/heros-bedroom-written.jpg",
+  "/images/hero/heros-dining-written.jpg",
+  "/images/hero/heros-kitchen-written.jpg",
+  "/images/hero/heros-decor-written.jpg",
+  "/images/hero/heros-outdoor-written.jpg",
+];
+
 export function HeroRender() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [nextIndex, setNextIndex] = useState<number | null>(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setActiveIndex((current) => {
+        const next = (current + 1) % heroImages.length;
+        setNextIndex(next);
+        setIsTransitioning(true);
+
+        window.setTimeout(() => {
+          setActiveIndex(next);
+          setIsTransitioning(false);
+          setNextIndex(null);
+        }, 600);
+
+        return current;
+      });
+    }, 5000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
   return (
     <div
       style={{
@@ -22,14 +56,34 @@ export function HeroRender() {
         justifyContent: "center",
       }}
     >
-      <Image
-        src="/images/hero/heros-written-main.jpg"
-        alt="Curated home scene"
-        fill
-        sizes="(max-width: 768px) 100vw, 50vw"
-        priority
-        style={{ objectFit: "cover" }}
-      />
+      <div style={{ position: "absolute", inset: 0 }}>
+        <Image
+          src={heroImages[activeIndex]}
+          alt="Curated home scene"
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          priority
+          style={{
+            objectFit: "cover",
+            opacity: isTransitioning ? 0 : 1,
+            transition: "opacity 600ms ease-in-out",
+          }}
+        />
+        {nextIndex !== null ? (
+          <Image
+            src={heroImages[nextIndex]}
+            alt="Curated home scene"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority
+            style={{
+              objectFit: "cover",
+              opacity: isTransitioning ? 1 : 0,
+              transition: "opacity 600ms ease-in-out",
+            }}
+          />
+        ) : null}
+      </div>
     </div>
   );
 }
