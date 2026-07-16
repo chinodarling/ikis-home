@@ -3,21 +3,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { useParams } from "next/navigation";
 import { kitchenwareProducts, formatCurrency } from "../../../../data/kitchenware";
 import Container from "../../../../components/ui/Container";
 import { useCart } from "../../../../components/shop/CartProvider";
 
-export default function KitchenwareProductPageClient() {
-  const params = useParams<{ id: string }>();
+export default function KitchenwareProductClient({
+  id,
+}: {
+  id: string;
+}) {
   const { addItem } = useCart();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
-  const product = useMemo(
-    () => kitchenwareProducts.find((item) => item.id === params.id),
-    [params.id]
-  );
+ const product = useMemo(
+  () => kitchenwareProducts.find((item) => item.id === id),
+  [id]
+);
 
   const relatedProducts = useMemo(
     () => kitchenwareProducts.filter((item) => item.collection === product?.collection && item.id !== product?.id).slice(0, 3),

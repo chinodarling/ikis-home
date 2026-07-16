@@ -1,6 +1,8 @@
 import "../styles/globals.css";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
+import { CartProvider } from "../components/shop/CartProvider";
+import CartDrawer from "../components/shop/CartDrawer";
 import { siteConfig } from "../lib/site";
 
 export const metadata = {
@@ -16,11 +18,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="site-shell">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+        <CartProvider>
+          <div className="site-shell">
+            <Header />
+            {children}
+            <Footer />
+            <CartDrawer />
+          </div>
+        </CartProvider>
       </body>
     </html>
   );
