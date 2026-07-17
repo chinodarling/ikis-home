@@ -9,8 +9,8 @@ const navItems = [
   { label: "Furniture", href: "/furniture" },
   { label: "Decor", href: "/decor" },
   { label: "Kitchenware", href: "/shop/kitchenware" },
+  { label: "IKIS Kids", href: "/ikis-kids" },
 ];
-
 export default function Header() {
   return (
     <header className="site-header">

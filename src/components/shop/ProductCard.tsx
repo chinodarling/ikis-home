@@ -4,12 +4,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import type { Product } from "../../data/products";
 import { formatCurrency } from "../../data/products";
-
-type ProductCardProps = {
-  product: Product;
-};
+import { useCart } from "./CartProvider";
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const { addItem } = useCart();
   const [hasImage, setHasImage] = useState(false);
 
   useEffect(() => {
@@ -109,9 +107,48 @@ export default function ProductCard({ product }: ProductCardProps) {
         <p style={{ margin: 0, color: "#6F675E", fontSize: 15, lineHeight: 1.7 }}>
           {product.description}
         </p>
-        <p style={{ margin: "0.9rem 0 0", color: "#222222", fontSize: 17, fontWeight: 700 }}>
-          {formatCurrency(product.price)}
-        </p>
+        <div
+  style={{
+    marginTop: 16,
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  }}
+>
+  <span
+    style={{
+      color: "#222222",
+      fontSize: 17,
+      fontWeight: 700,
+    }}
+  >
+    {formatCurrency(product.price)}
+  </span>
+
+  <button
+    type="button"
+    onClick={() =>
+      addItem({
+        id: product.id,
+        name: product.name,
+        category: product.category,
+        price: product.price,
+        image: product.image,
+        quantity: 1,
+      })
+    }
+    style={{
+      border: "1px solid rgba(34,34,34,0.12)",
+      borderRadius: 999,
+      padding: "0.7rem 1rem",
+      background: "#FFFFFF",
+      cursor: "pointer",
+      fontWeight: 700,
+    }}
+  >
+    Add
+  </button>
+</div>
       </div>
     </article>
   );
